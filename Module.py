@@ -30,7 +30,7 @@ def amps_to_watts_ac3l(amps,voltage,power_factor):
 
 #start of script if run from here (this is mostly for testing)
 if __name__ == '__main__':
-    #this is how to calculate square root
+    #this is how to calculate the square root
     #print(round(3 ** 0.5, 3))
 
     amps1 = int(input('amps: '))
