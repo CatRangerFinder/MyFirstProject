@@ -3,6 +3,8 @@ lower_mode_limit = 1
 upper_mode_limit = 3
 
 import Module
+#import tkinter
+#import customtkinter
 
 print ('-----' * 14,)
 print ('|',' ' * 4,'Please type the mode you want below valid options:',' ' * 10,'|' )
