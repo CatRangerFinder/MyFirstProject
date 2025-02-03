@@ -1,16 +1,30 @@
-from Module import *
-from Cli import print_screen1
-#import tkinter
-#import customtkinter
+#check limits
+lower_mode_limit = 1
+upper_mode_limit = 3
 
-interface_mode = int(input('input 0 for GUI and 1 for terminal use: '))
-if interface_mode == 1:
-    print('Starting terminal')
-    selected_mode = print_screen1()
-else:
-    #todo finish making GUI
-    print('Starting GUI')
-    exit(0)
+from Module import *
+
+def print_screen1():
+    print ('-----' * 14)
+    print ('|',' ' * 4,'Please type the mode you want below valid options:',' ' * 10,'|' )
+    print ('|',' ' * 66,'|' )
+    print ('|',' ' * 4,"1. calculate watts with amps (DC)",' ' * 27,'|' )
+    print ('|',' ' * 4,"2. calculate watts with amps (1 phase AC)",' ' * 19,'|' )
+    print ('|',' ' * 4,"3. calculate watts with amps (3 phase line to line AC)",' ' * 6,'|' )
+    print ('|',' ' * 66,'|' )
+    print ('|',' ' * 66,'|' )
+    print ('-----' * 14)
+
+    selected_mode = int(input("Mode Selector: "))
+    print('-----' * 14)
+    #check to see if inputted mode is in range
+    if lower_mode_limit > selected_mode:
+        print('ERROR = Below mode limit')
+    if upper_mode_limit < selected_mode:
+        print('ERROR = Above mode limit')
+    return selected_mode
+
+selected_mode = print_screen1()
 
 #starts function related to the selected mode
 if selected_mode == 1:
