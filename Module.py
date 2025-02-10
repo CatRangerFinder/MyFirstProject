@@ -1,3 +1,8 @@
+#todo make a the part where amps is calculated using watts
+
+
+##This is for all the calculating watts with amps options
+
 #edit last number to change how precise it is
 phase_root = round(3 ** 0.5, 4)
 
