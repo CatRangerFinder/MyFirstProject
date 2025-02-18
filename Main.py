@@ -1,32 +1,32 @@
-#check limits
+#Script check limits
 lower_method_limit = 1
 upper_method_limit = 2
 lower_mode_limit = 1
 upper_mode_limit = 3
-
+#Import Modules required for the script
 from Module import *
 
 
-def print_screen1():
+def print_screen_method():
     print ('-----' * 14)
     print ('|',' ' * 4,'Please type the method you want below valid options:',' ' * 8,'|' )
     print ('|',' ' * 66,'|' )
     print ('|',' ' * 4,"1. calculate watts using amps",' ' * 31,'|' )
-    print ('|',' ' * 4,"2. calculate amps using watts (nonfunctional)",' ' * 15,'|' )
+    print ('|',' ' * 4,"2. calculate amps using watts",' ' * 31,'|' )
     print ('|',' ' * 66,'|' )
     print ('|',' ' * 66,'|' )
     print ('-----' * 14)
 
     selected_mode = int(input("Mode Selector: "))
-    print('-----' * 14)
-    # check to see if inputted mode is in range
+    #Check to see if inputted method is in range
     if lower_method_limit > selected_mode:
         print('ERROR = Below method limit')
     if upper_method_limit < selected_mode:
         print('ERROR = Above method limit')
     return selected_mode
 
-def print_screen2():
+##Everything here is for the amps method
+def print_screen_amps():
     print ('-----' * 14)
     print ('|',' ' * 4,'Please type the mode you want below valid options:',' ' * 10,'|' )
     print ('|',' ' * 66,'|' )
@@ -39,15 +39,15 @@ def print_screen2():
 
     selected_mode = int(input("Mode Selector: "))
     print('-----' * 14)
-    #check to see if inputted mode is in range
+    #Check to see if inputted mode is in range
     if lower_mode_limit > selected_mode:
         print('ERROR = Below mode limit')
     if upper_mode_limit < selected_mode:
         print('ERROR = Above mode limit')
     return selected_mode
 
-#setup functions related to the "calculate watts with amps" mode
-def mode_response():
+#Setup functions related to the "calculate watts with amps" method
+def mode_response_amps():
     if selected_mode_amps == 1:
         amps = int(input('Amount of Amps: '))
         voltage = int(input('Amount of Volts: '))
@@ -74,14 +74,68 @@ def mode_response():
     else:
         input('ERROR = There was a issue with your selection')
 
+##Everything here is for the watts method
 
-selected_method = print_screen1()
+def print_screen_watts():
+    print ('-----' * 14)
+    print ('|',' ' * 4,'Please type the mode you want below valid options:',' ' * 10,'|' )
+    print ('|',' ' * 66,'|' )
+    print ('|',' ' * 4,"1. calculate amps with watts (DC)",' ' * 27,'|' )
+    print ('|',' ' * 4,"2. calculate amps with watts (1 phase AC)",' ' * 19,'|' )
+    print ('|',' ' * 4,"3. calculate amps with watts (3 phase line to line AC)",' ' * 6,'|' )
+    print ('|',' ' * 66,'|' )
+    print ('|',' ' * 66,'|' )
+    print ('-----' * 14)
+
+    selected_mode = int(input("Mode Selector: "))
+    print('-----' * 14)
+    #Check to see if inputted mode is in range
+    if lower_mode_limit > selected_mode:
+        print('ERROR = Below mode limit')
+    if upper_mode_limit < selected_mode:
+        print('ERROR = Above mode limit')
+    return selected_mode
+
+#Setup functions related to the "calculate amps with watts" method
+def mode_response_watts():
+    if selected_mode_watts == 1:
+        watts = int(input('Amount of watts: '))
+        voltage = int(input('Amount of Volts: '))
+        amps = watts_to_amps_dc(watts,voltage)
+        print('-----' * 14)
+        print(f'Amount of amps is {amps}')
+
+    elif selected_mode_watts == 2:
+        watts = int(input('Amount of watts: '))
+        voltage = int(input('Amount of Volts: '))
+        power_factor = float(input('Expected power factor (1 to 0): '))
+        amps = watts_to_amps_ac1(watts,voltage,power_factor)
+        print('-----' * 14)
+        print(f'Amount of amps is {amps}')
+
+    elif selected_mode_watts == 3:
+        watts = int(input('Amount of watts: '))
+        voltage = int(input('Amount of Volts: '))
+        power_factor = float(input('Expected power factor (1 to 0): '))
+        amps = watts_to_amps_ac3l(watts,voltage,power_factor)
+        print('-----' * 14)
+        print(f'Amount of amps is {amps}')
+
+    else:
+        input('ERROR = There was a issue with your selection')
+
+
+selected_method = print_screen_method()
 
 if selected_method == 1:
-#print calculate watts with amps selection
-    selected_mode_amps = print_screen2()
-    mode_response()
+    #Print calculate watts with amps selection
+    selected_mode_amps = print_screen_amps()
+    mode_response_amps()
     input('\nPress enter to exit: ')
-#in the future this will be to calculate the amps using watts
+
 elif selected_method == 2:
-    print('Empty')
+    #Print calculate amps with watts selection
+    selected_mode_watts = print_screen_watts()
+    mode_response_watts()
+    input('\nPress enter to exit: ')
+    pass
