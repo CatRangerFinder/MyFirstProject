@@ -1,4 +1,5 @@
 # Power Calculator
+[!NOTE]
 This is my first script so sorry for any issue that may arise from my script please report any issues with the script if I miss something!
 
 ---
