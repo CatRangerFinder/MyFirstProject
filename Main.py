@@ -8,14 +8,17 @@ from Module import *
 
 
 def print_screen_method():
-    print ('-----' * 14)
-    print ('|',' ' * 4,'Please type the method you want below valid options:',' ' * 8,'|' )
-    print ('|',' ' * 66,'|' )
-    print ('|',' ' * 4,"1. calculate watts using amps",' ' * 31,'|' )
-    print ('|',' ' * 4,"2. calculate amps using watts",' ' * 31,'|' )
-    print ('|',' ' * 66,'|' )
-    print ('|',' ' * 66,'|' )
-    print ('-----' * 14)
+    print(
+        '----------------------------------------------------------------\n'
+        '|     Please type the method you want below valid options:     |\n'
+        '|                                                              |\n'
+        '|     1. calculate watts using amps                            |\n'
+        '|     2. calculate amps using watts                            |\n'
+        '|                                                              |\n'
+        '|                                                              |\n'
+        '----------------------------------------------------------------'
+        )
+
 
     selected_mode = int(input("Mode Selector: "))
     #Check to see if inputted method is in range
@@ -27,15 +30,17 @@ def print_screen_method():
 
 ##Everything here is for the amps method
 def print_screen_amps():
-    print ('-----' * 14)
-    print ('|',' ' * 4,'Please type the mode you want below valid options:',' ' * 10,'|' )
-    print ('|',' ' * 66,'|' )
-    print ('|',' ' * 4,"1. calculate watts with amps (DC)",' ' * 27,'|' )
-    print ('|',' ' * 4,"2. calculate watts with amps (1 phase AC)",' ' * 19,'|' )
-    print ('|',' ' * 4,"3. calculate watts with amps (3 phase line to line AC)",' ' * 6,'|' )
-    print ('|',' ' * 66,'|' )
-    print ('|',' ' * 66,'|' )
-    print ('-----' * 14)
+    print(
+        '----------------------------------------------------------------\n'
+        '|      Please type the mode you want below valid options:      |\n'
+        '|                                                              |\n'
+        '|      1. calculate watts with amps (DC)                       |\n'
+        '|      2. calculate watts with amps (1 phase AC)               |\n'
+        '|      3. calculate watts with amps (3 phase line to line AC)  |\n'
+        '|                                                              |\n'
+        '|                                                              |\n'
+        '----------------------------------------------------------------'
+        )
 
     selected_mode = int(input("Mode Selector: "))
     print('-----' * 14)
@@ -77,15 +82,18 @@ def mode_response_amps():
 ##Everything here is for the watts method
 
 def print_screen_watts():
-    print ('-----' * 14)
-    print ('|',' ' * 4,'Please type the mode you want below valid options:',' ' * 10,'|' )
-    print ('|',' ' * 66,'|' )
-    print ('|',' ' * 4,"1. calculate amps with watts (DC)",' ' * 27,'|' )
-    print ('|',' ' * 4,"2. calculate amps with watts (1 phase AC)",' ' * 19,'|' )
-    print ('|',' ' * 4,"3. calculate amps with watts (3 phase line to line AC)",' ' * 6,'|' )
-    print ('|',' ' * 66,'|' )
-    print ('|',' ' * 66,'|' )
-    print ('-----' * 14)
+    print(
+        '----------------------------------------------------------------\n'
+        '|    Please type the mode you want below valid options:        |\n'
+        '|                                                              |\n'
+        '|    1. calculate amps with watts (DC)                         |\n'
+        '|    2. calculate amps with watts (1 phase AC)                 |\n'
+        '|    3. calculate amps with watts (3 phase line to line AC)    |\n'
+        '|                                                              |\n'
+        '|                                                              |\n'
+        '----------------------------------------------------------------'
+        )
+
 
     selected_mode = int(input("Mode Selector: "))
     print('-----' * 14)
